@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <string.h>
+#include <stdlib.h>
 /**
  * main - prints all possible different combinations of three digits 
  *
@@ -7,32 +8,39 @@
  */
 int main(void)
 {
-	int cent = 48; /* 9 in ASCII */
-	int dec;
-	int unit;
+	unsigned int i = 0;
+	unsigned int j;
+	unsigned int k;
 
-	while (dec <= 57)
+	char *nums = (char *) malloc(sizeof(char) * 11);
+	strcpy(nums, "0123456789");
+
+	while (i < strlen(nums))
 	{
-		unit = dec + 1;
-		while (unit <= 57)
+		j = i + 1;
+		while (j < strlen(nums))
 		{
-			if (dec != unit)
+			k = j + 1;
+			while (k < strlen(nums))
 			{
-				putchar(dec);
-				putchar(unit);
+				putchar(nums[i]);
+				putchar(nums[j]);
+				putchar(nums[k]);
 
-				if (dec != 56 || unit != 57)
+				if(i != strlen(nums) - 3)
 				{
 					putchar(',');
 					putchar(' ');
-				}
+				}	
+				k++;
 			}
-			unit++;
+			j++;
 		}
-		dec++;
+		i++;
 	}
-
 	putchar('\n');
+
+	free(nums);
 	return (0);
 }
 
