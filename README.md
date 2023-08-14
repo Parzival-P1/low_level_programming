@@ -1,1 +1,1 @@
-<h1 align="center"> C - Hello World </h1>
+<h1 align="center"> C - Repository for C Programming Languuage </h1>
