@@ -12,11 +12,14 @@ void print_alphabet_x10(void)
 	char alpha[] = "abcdefghijklmnopqrstuvwxyz\n";
 	int i = 0;
 
-	while (i++ < 9)
+	while (i < 10)
 	{
-		while(alpha[i] != '\0' )
-			_putchar (alpha[i++]);
-	_putchar (alpha[i++]);
-	}
+		//alpha[i] = 'a';
+		while(i <= 10)
+		{
+			_putchar (alpha[i]);
+			//_putchar (alpha[i]);
+			i++;
+		}
+	}	
 }
-

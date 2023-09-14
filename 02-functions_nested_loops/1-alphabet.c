@@ -15,4 +15,3 @@ void print_alphabet(void)
 	while (alpha[i] != '\0')
 		_putchar (alpha[i++]);
 }
-
