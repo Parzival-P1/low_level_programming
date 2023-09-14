@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
 /**
  * main - prints all possible different combinations of two digits 
  *
@@ -7,31 +8,31 @@
  */
 int main(void)
 {
-	int dec = 48; /* 9 in ASCII */
-	int unit;
+	unsigned int i = 0;
+	unsigned int j;
 
-	while (dec <= 57)
+	char *nums = (char *) malloc(sizeof(char) * 11);
+	strcpy(nums, "0123456789");
+
+	while (i < strlen(nums))
 	{
-		unit = dec + 1;
-		while (unit <= 57)
+		j = i + 1;
+		while (j < strlen(nums))
 		{
-			if (dec != unit)
+			putchar(nums[i]);
+			putchar(nums[j]);
+
+			if (i != strlen(nums) - 2)
 			{
-				putchar(dec);
-				putchar(unit);
-
-				if (dec != 56 || unit != 57)
-				{
-					putchar(',');
-					putchar(' ');
-				}
-			}
-			unit++;
+				
+				putchar(',');
+				putchar(' ');
+			}	
+			j++;
 		}
-		dec++;
-	}
-
+		i++;
+	}	
 	putchar('\n');
+	free(nums);
 	return (0);
 }
-

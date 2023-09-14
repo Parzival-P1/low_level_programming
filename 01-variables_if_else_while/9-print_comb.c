@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 /**
  * main - prints all possible combinations of single-digit nums
@@ -7,20 +9,23 @@
  */
 int main(void)
 {
-	char nums[] = "0123456789";
+	unsigned int i = 0;
 
-	int i = 0;
+	char * nums = (char *) malloc(sizeof(char) * 11);
+	strcpy(nums, "0123456789");
 
-	while (nums[i] >= '0' && nums[i] <= '9')
+	while (i < strlen(nums))
 	{
 		putchar(nums[i++]);
-		if (i <= 9)
+
+		if (i != strlen(nums))
 		{
 			putchar(',');
 			putchar(' ');
 		}
 	}
 	putchar('\n');
+
+	free(nums);
 	return (0);
 }
-
